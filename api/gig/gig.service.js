@@ -35,7 +35,6 @@ async function getById(gigId) {
     //   toy.reviews = reviews
 
     const gig= await prmGig
-    console.log(gig)
       return gig
    } catch (err) {
       console.log(`ERROR: cannot find gig ${gigId}`)

@@ -29,7 +29,7 @@ async function getGigs(req, res) {
 
 async function deleteGig(req, res) {
     try {
-        await userService.remove(req.params.id)
+        await gigService.remove(req.params.id)
         res.send({ msg: 'Deleted successfully' })
     } catch (err) {
         logger.error('Failed to delete gig', err)
