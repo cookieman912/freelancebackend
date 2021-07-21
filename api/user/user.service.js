@@ -16,7 +16,6 @@ async function query(filterBy = {}) {
     const criteria = _buildCriteria(filterBy)
     try {
         const collection = await dbService.getCollection('user')
-        console.log(collection)
         var users = await collection.find(criteria).toArray()
         users = users.map(user => {
             delete user.password
@@ -73,6 +72,7 @@ async function remove(userId) {
 
 async function update(user) {
     try {
+        console.log(user)
         // peek only updatable fields!
         const userToSave = {
             _id: ObjectId(user._id),
