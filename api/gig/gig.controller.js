@@ -15,10 +15,7 @@ async function getGig(req, res) {
 
 async function getGigs(req, res) {
     try {console.log('in get gigs')
-        const filterBy = {
-            txt: req.query?.txt || '',
-            minBalance: +req.query?.minBalance || 0
-        }
+        const filterBy = {}
         const gigs = await gigService.query(filterBy)
         res.send(gigs)
     } catch (err) {

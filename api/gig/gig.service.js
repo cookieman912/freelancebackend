@@ -11,7 +11,8 @@ module.exports = {
    // addReview
 }
 
-async function query(filterBy) {
+async function query(filterBy = {}) {
+   filterBy = JSON.parse(JSON.stringify((filterBy)));
    const criteria = _buildCriteria(filterBy);
    try {
       const collection = await dbService.getCollection('gig')
