@@ -44,7 +44,7 @@ async function getById(gigId) {
 }
 
 async function remove(gig) {
-   try {
+   try {console.log('in backend remove')
       const collection = await dbService.getCollection('gig')
       return await collection.deleteOne({ _id: ObjectId(gig) })
    } catch (err) {

@@ -25,7 +25,7 @@ async function getGigs(req, res) {
 }
 
 async function deleteGig(req, res) {
-    try {
+    try {console.log('in controller delete')
         await gigService.remove(req.params.id)
         res.send({ msg: 'Deleted successfully' })
     } catch (err) {
