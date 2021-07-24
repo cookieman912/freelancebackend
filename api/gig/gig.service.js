@@ -16,6 +16,7 @@ async function query(filterBy = {}) {
    const criteria = _buildCriteria(filterBy);
    try {
       const collection = await dbService.getCollection('gig')
+      console.log(collection)
       const gigs = await collection.find(criteria).toArray()
       return gigs;
    } catch (err) {
