@@ -4,8 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/_old_favicon (2).ico"
   },
   {
-    "revision": "060f0290ec8ed9ebe911",
-    "url": "/css/app.61b53659.css"
+    "revision": "de192976e861404e3e87",
+    "url": "/css/app.9ffb3881.css"
   },
   {
     "revision": "ebe0537c7569404482ed",
@@ -48,12 +48,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/yori.1a015980.jpg"
   },
   {
-    "revision": "00e82dc5b287c5522fa8681b6fd448d6",
+    "revision": "3743770e815d8e1f5d057f74fda65051",
     "url": "/index.html"
   },
   {
-    "revision": "060f0290ec8ed9ebe911",
-    "url": "/js/app.14aa39cc.js"
+    "revision": "de192976e861404e3e87",
+    "url": "/js/app.804b643d.js"
   },
   {
     "revision": "ebe0537c7569404482ed",
