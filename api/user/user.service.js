@@ -2,6 +2,7 @@ const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const reviewService = require('../review/review.service')
 const ObjectId = require('mongodb').ObjectId
+const socketService=require('../../services/socket.service')
 
 module.exports = {
     query,
@@ -72,7 +73,7 @@ async function remove(userId) {
 
 async function update(user) {
     try {
-        console.log(user)
+        console.log('in update user')
         // peek only updatable fields!       
         const userToSave = {
             _id: ObjectId(user._id),
@@ -83,7 +84,11 @@ async function update(user) {
         }
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ '_id': userToSave._id }, { $set: userToSave })
-        console.log('user saved')
+        // console.log('in change code')
+        // console.log(userToSave)
+        
+        // socketService.off(SOCKET_EVENT_USER_UPDATED)
+        // socketService.on(SOCKET_EVENT_USER_UPDATED)
         return userToSave;
     } catch (err) {
         logger.error(`cannot update user ${user._id}`, err)

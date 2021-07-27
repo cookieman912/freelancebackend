@@ -39,8 +39,8 @@ async function deleteUser(req, res) {
 async function updateUser(req, res) {
     try {
         const user = req.body
-        console.log('user in controller')
-        console.log(user)
+        // console.log('user in controller')
+        // console.log(user)
         const savedUser = await userService.update(user)
         res.send(savedUser)
     } catch (err) {
@@ -51,7 +51,7 @@ async function updateUser(req, res) {
 
 async function addUser(req, res) {
     try {
-        console.log('in add')
+        // console.log('in add')
         const user = req.body
         const savedUser = await userService.add(user)
         res.send(savedUser)

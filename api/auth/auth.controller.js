@@ -14,7 +14,7 @@ async function login(req, res) {
 }
 
 async function signup(req, res) {
-    console.log('logging in')
+    // console.log('logging in')
     try {
         const { username, password, fullname, imgUrl, createdAt } = req.body
         // Never log passwords
@@ -32,10 +32,13 @@ async function signup(req, res) {
 }
 
 async function logout(req, res){
-    try {
-        // req.session.destroy()
-        req.session.user = null;
-        console.log(req.session.user)
+    try {console.log('before destroying')
+        req.session.destroy()
+        console.log('before null')
+        // req.session.user = null;
+    
+        console.log('loggin out')
+        // console.log(req.session.user)
         res.send({ msg: 'Logged out successfully' })
     } catch (err) {
         res.status(500).send({ err: 'Failed to logout' })

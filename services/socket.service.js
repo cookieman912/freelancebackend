@@ -10,7 +10,7 @@ function connectSockets(http, session) {
         socket.on('disconnect', socket => {
             console.log('Someone disconnected')
         })
-        socket.on('chat topic', topic => {
+        socket.on('user-topic', topic => {
             if (socket.myTopic === topic) return;
             if (socket.myTopic) {
                 socket.leave(socket.myTopic)
@@ -28,11 +28,19 @@ function connectSockets(http, session) {
             socket.join('watching:' + userId)
         })
         socket.on('set-user-socket', userId => {
+            console.log(userId, 'setting user socket')
             logger.debug(`Setting socket.userId = ${userId}`)
+            
             socket.userId = userId
+            console.log('socket id',socket.userId)
         })
         socket.on('unset-user-socket', () => {
+            console.log('unsetting socket')
             delete socket.userId
+        })
+        socket.on('user-updated', (user) => {
+            // console.log(user, 'allgood?')
+            emitToUser({type:'user-updated', data:user, userId:user._id})
         })
 
     })
@@ -44,6 +52,8 @@ function emitTo({ type, data, label }) {
 }
 
 function emitToUser({ type, data, userId }) {
+    console.log('emiting to user')
+    console.log(data)
     logger.debug('Emiting to user socket: ' + userId)
     const socket = _getUserSocket(userId)
     if (socket) socket.emit(type, data)
